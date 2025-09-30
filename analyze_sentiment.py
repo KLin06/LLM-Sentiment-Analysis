@@ -21,36 +21,24 @@ incorrect_file = f"past prompts/{iteration_val}_{samples}_incorrect_predictions.
 base_message = [
 {
     "role": "system",
-    "content": """You are an expert investor, and your financial success depends on correctly analyzing these sentiments.
+    "content": """You are an expert investor.
 
-    Task: Given a company news headline, classify the investment sentiment and output ONLY valid JSON:
+    Task: Given a company news headline:
+    Step 1: Internally translate the headline into a weather forecast.
+       • Sunny = positive
+       • Cloudy = neutral
+       • Stormy = negative
+    Step 2: Map the weather outcome back into investment sentiment.
+    Step 3: Output ONLY valid JSON:
     {
-        "headline": "...",
         "sentiment": "positive" | "neutral" | "negative"
     }
 
-    Deliberate reasoning (INTERNAL ONLY — do not reveal):
-    1) Parse the headline: identify entity, event/action, direction/scale words, and any causes (e.g., regulation, demand).
-    2) Extract features: earnings beat/miss; guidance raise/cut/withdrawal; revenue growth/decline; regulatory approval/fine/investigation; product launch/recall/delay; M&A/divestiture; layoffs/hiring; macro policy/data surprises.
-    3) Map features to investor impact (buy/hold/sell). Prefer explicit results/guidance over vague phrasing.
-    4) Apply decision boundaries and resolve conflicts:
-       - Clearly good for shareholders → positive.
-       - Clearly bad for shareholders → negative.
-       - Mixed/ambiguous/weak signal → neutral.
-       - If uncertain or speculative (“may”, “considering”) → neutral.
-    5) Sanity checks: ignore sensational adjectives; avoid inferring beyond the headline; choose the dominant financial impact.
-
-    Definitions:
-    - "positive": Reasons an investor would be more confident to buy/hold (e.g., beats, raised guidance, strong demand, favorable regulatory decisions).
-    - "negative": Reasons an investor would be less confident or consider selling/avoiding (e.g., misses, lowered/withdrawn guidance, legal issues, fines, layoffs, product failures).
-    - "neutral": Information without a clear or dominant impact (e.g., scheduled announcements, leadership changes, routine updates, mixed/ambiguous signals).
-
-    Output rules:
-    - Keep all reasoning internal; do NOT include it in the final response.
-    - The final response must be ONLY the JSON object shown above.
-    - Do not include explanations.
+    Rules:
+    - The weather metaphor is part of your internal reasoning. Do not show it in the output.
+    - The final response must ONLY be the JSON object.
+    - Do not add explanations.
     - Do not add extra fields.
-    - If uncertain, always default to "neutral".
     - Sentiment must be exactly one of: positive, neutral, negative.
     """
 },
@@ -61,10 +49,10 @@ base_message = [
 {
     "role": "assistant",
     "content": """{
-        "headline": "Harley-Davidson withdraws 2025 outlook due to tariff situation",
         "sentiment": "negative"
     }"""
 }
+
 
 ]
 

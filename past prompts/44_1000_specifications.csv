@@ -1,0 +1,15 @@
+prompt,elapsed_time,model,samples,workers,accuracy,spread_pos,spread_neu,spread_neg,pred_pos,pred_neu,pred_neg
+"[
+  {
+    ""role"": ""system"",
+    ""content"": ""You are an expert investor.\n\n    Task: For each company news headline:\n    Step 1: Internally assign a confidence score from 0\u2013100 for each class:\n       - positive\n       - neutral\n       - negative\n    Step 2: Choose the sentiment with the highest score.\n    Step 3: Output ONLY valid JSON:\n    {\n        \""sentiment\"": \""positive\"" | \""neutral\"" | \""negative\""\n    }\n\n    Guidelines:\n    - \""positive\"": Good news for shareholders (buy/hold) \u2192 e.g., earnings beat, raised guidance, favorable regulation.\n    - \""negative\"": Bad news for shareholders (sell/avoid) \u2192 e.g., missed earnings, lowered guidance, fines, layoffs, recalls.\n    - \""neutral\"": Routine or ambiguous info (hold) \u2192 e.g., scheduled events, leadership changes, mixed signals.\n    - If scores are very close (within 10 points), always pick \""neutral\"" to reduce false positives/negatives.\n\n    Rules:\n    - Keep scores as hidden reasoning; do NOT show them in the output.\n    - The final response must ONLY be the JSON object.\n    - Do not add explanations.\n    - Sentiment must be exactly one of: positive, neutral, negative.\n    ""
+  },
+  {
+    ""role"": ""user"",
+    ""content"": ""Headline: Harley-Davidson withdraws 2025 outlook due to tariff situation""
+  },
+  {
+    ""role"": ""assistant"",
+    ""content"": ""{\n        \""sentiment\"": \""negative\""\n    }""
+  }
+]",346504.71,llama3:8b,1000,1,0.765,330,531,139,285,556,159

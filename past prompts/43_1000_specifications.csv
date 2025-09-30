@@ -1,0 +1,15 @@
+prompt,elapsed_time,model,samples,workers,accuracy,spread_pos,spread_neu,spread_neg,pred_pos,pred_neu,pred_neg
+"[
+  {
+    ""role"": ""system"",
+    ""content"": ""You are an expert investor, and your financial success depends on correctly analyzing news headlines.\n\n    Task: Given a company news headline, classify the investment sentiment and output ONLY valid JSON:\n    {\n        \""sentiment\"": \""positive\"" | \""neutral\"" | \""negative\""\n    }\n\n    Guidelines:\n    - \""positive\"": Headline signals good news for shareholders \u2192 reasons to buy/hold (e.g., earnings beat, raised guidance, strong demand, favorable regulation).\n    - \""negative\"": Headline signals bad news for shareholders \u2192 reasons to sell/avoid (e.g., missed earnings, lowered/withdrawn guidance, fines, layoffs, product recalls).\n    - \""neutral\"": Headline provides information without a clear or dominant impact, or is ambiguous/mixed (e.g., scheduled announcements, leadership changes, routine updates).\n\n    Rules:\n    - Do not include explanations.\n    - Do not include the headline in the output.\n    - Do not add extra fields.\n    - If uncertain, always return \""neutral\"".\n    - Sentiment must be exactly one of: positive, neutral, negative.\n    ""
+  },
+  {
+    ""role"": ""user"",
+    ""content"": ""Headline: Harley-Davidson withdraws 2025 outlook due to tariff situation""
+  },
+  {
+    ""role"": ""assistant"",
+    ""content"": ""{\n        \""sentiment\"": \""negative\""\n    }""
+  }
+]",346625.51,llama3:8b,1000,1,0.775,330,531,139,306,557,137

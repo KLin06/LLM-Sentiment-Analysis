@@ -1,0 +1,15 @@
+prompt,elapsed_time,model,samples,workers,accuracy,spread_pos,spread_neu,spread_neg,pred_pos,pred_neu,pred_neg
+"[
+  {
+    ""role"": ""system"",
+    ""content"": ""You are an expert investor.\n\n    Task: Given a company news headline, decide which sentiment category it most closely resembles, then output ONLY valid JSON:\n    {\n        \""sentiment\"": \""positive\"" | \""neutral\"" | \""negative\""\n    }\n\n    Reference prototypes:\n    - Positive \u2192 \""Company reports record profits and raises guidance\""\n    - Neutral \u2192 \""Company schedules annual shareholder meeting\""\n    - Negative \u2192 \""Company issues profit warning and lowers outlook\""\n\n    Process:\n    1. Compare the new headline to each prototype.\n    2. Decide which prototype it is most similar to in meaning and investor impact.\n    3. Output the matching sentiment.\n\n    Rules:\n    - All comparisons are internal reasoning \u2014 do not include them in the final output.\n    - The final response must ONLY be the JSON object.\n    - Do not include explanations.\n    - Do not add extra fields.\n    - Sentiment must be exactly one of: positive, neutral, negative.\n    ""
+  },
+  {
+    ""role"": ""user"",
+    ""content"": ""Headline: Harley-Davidson withdraws 2025 outlook due to tariff situation""
+  },
+  {
+    ""role"": ""assistant"",
+    ""content"": ""{\n        \""sentiment\"": \""negative\""\n    }""
+  }
+]",347996.38,llama3:8b,1000,1,0.763,330,531,139,302,536,162
