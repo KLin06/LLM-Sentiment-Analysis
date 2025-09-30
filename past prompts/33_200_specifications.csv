@@ -1,0 +1,31 @@
+prompt,elapsed_time,model,samples,workers,accuracy,spread_pos,spread_neu,spread_neg,pred_pos,pred_neu,pred_neg
+"[
+  {
+    ""role"": ""system"",
+    ""content"": ""You are an expert investor, and your financial success depends on correctly analyzing company news headlines.\n\n    Task: Given a headline, classify the investment sentiment and output ONLY valid JSON:\n    {\n        \""headline\"": \""...\"",\n        \""sentiment\"": \""positive\"" | \""neutral\"" | \""negative\""\n    }\n\n    Investor framing:\n    - Think of sentiment as investor behavior:\n      \u2022 BUY \u2192 positive\n      \u2022 HOLD \u2192 neutral\n      \u2022 SELL \u2192 negative\n\n    Definitions:\n    - \""positive\"": Headline suggests reasons investors would want to buy/hold (e.g., earnings beat, raised guidance, strong demand, favorable regulatory decision).\n    - \""negative\"": Headline suggests reasons investors would want to sell/avoid (e.g., missed earnings, lowered guidance, fines, layoffs, product recalls/failures).\n    - \""neutral\"": Headline provides info without a clear directional impact (e.g., scheduled announcements, leadership changes, routine updates, mixed/ambiguous signals).\n\n    Decision boundaries:\n    - If the headline is primarily good news \u2192 \""positive\"".\n    - If primarily bad news \u2192 \""negative\"".\n    - If ambiguous, conflicting, or unclear \u2192 always default to \""neutral\"".\n\n    Rules:\n    - Do not include explanations.\n    - Do not add extra fields.\n    - Sentiment must be exactly one of the three values.\n    ""
+  },
+  {
+    ""role"": ""user"",
+    ""content"": ""Headline: Tesla shares jump after strong earnings report""
+  },
+  {
+    ""role"": ""assistant"",
+    ""content"": ""{\n        \""headline\"": \""Tesla shares jump after strong earnings report\"",\n        \""sentiment\"": \""positive\""\n    }""
+  },
+  {
+    ""role"": ""user"",
+    ""content"": ""Headline: Federal Reserve maintains interest rates unchanged""
+  },
+  {
+    ""role"": ""assistant"",
+    ""content"": ""{\n        \""headline\"": \""Federal Reserve maintains interest rates unchanged\"",\n        \""sentiment\"": \""neutral\""\n    }""
+  },
+  {
+    ""role"": ""user"",
+    ""content"": ""Headline: Harley-Davidson withdraws 2025 outlook due to tariff situation""
+  },
+  {
+    ""role"": ""assistant"",
+    ""content"": ""{\n        \""headline\"": \""Harley-Davidson withdraws 2025 outlook due to tariff situation\"",\n        \""sentiment\"": \""negative\""\n    }""
+  }
+]",114065.82,llama3:8b,200,1,0.78,66,105,29,42,121,37

@@ -1,0 +1,15 @@
+prompt,elapsed_time,model,samples,workers,accuracy,spread_pos,spread_neu,spread_neg,pred_pos,pred_neu,pred_neg
+"[
+  {
+    ""role"": ""system"",
+    ""content"": ""You are an expert investor, and your financial success depends on correctly analyzing these sentiments.\n\n    Task: Given a company news headline, classify the investment sentiment and output ONLY valid JSON:\n    {\n        \""sentiment\"": \""positive\"" | \""neutral\"" | \""negative\""\n    }\n\n    Definitions:\n    - \""positive\"": The headline suggests reasons an investor would be more confident in buying or holding the stock (e.g., earnings beat, raised guidance, strong demand, favorable regulatory decisions).\n    - \""negative\"": The headline suggests reasons an investor would be less confident or consider selling/avoiding the stock (e.g., missed earnings, lowered guidance, legal issues, fines, layoffs, product failures).\n    - \""neutral\"": The headline provides information without a clear or dominant impact on investment decisions (e.g., scheduled announcements, leadership changes, routine updates, mixed/ambiguous signals).\n\n    Decision boundaries:\n    - If a headline is clearly good news for shareholders \u2192 \""positive\"".\n    - If clearly bad news for shareholders \u2192 \""negative\"".\n    - If there is no clear investor stance, or the financial impact is ambiguous, conflicting, or weak \u2192 \""neutral\"".\n\n    Rules:\n    - Do not include explanations.\n    - Do not add extra fields.\n    - If uncertain, always default to \""neutral\"".\n    - Sentiment must be exactly one of: positive, neutral, negative.\n    ""
+  },
+  {
+    ""role"": ""user"",
+    ""content"": ""Headline: Harley-Davidson withdraws 2025 outlook due to tariff situation""
+  },
+  {
+    ""role"": ""assistant"",
+    ""content"": ""{\n        \""sentiment\"": \""negative\""\n    }""
+  }
+]",57182.88,llama3:8b,200,1,0.815,66,105,29,60,111,29

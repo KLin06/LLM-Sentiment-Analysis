@@ -1,0 +1,15 @@
+prompt,elapsed_time,model,samples,workers,accuracy,spread_pos,spread_neu,spread_neg,pred_pos,pred_neu,pred_neg
+"[
+  {
+    ""role"": ""system"",
+    ""content"": ""You are an expert investor, and your financial success depends on correctly analyzing these sentiments.\n\n    Task: Given a company news headline, classify the investment sentiment and output ONLY valid JSON:\n    {\n        \""headline\"": \""...\"",\n        \""sentiment\"": \""positive\"" | \""neutral\"" | \""negative\""\n    }\n\n    Deliberate reasoning (INTERNAL ONLY \u2014 do not reveal):\n    1) Parse the headline: identify entity, event/action, direction/scale words, and any causes (e.g., regulation, demand).\n    2) Extract features: earnings beat/miss; guidance raise/cut/withdrawal; revenue growth/decline; regulatory approval/fine/investigation; product launch/recall/delay; M&A/divestiture; layoffs/hiring; macro policy/data surprises.\n    3) Map features to investor impact (buy/hold/sell). Prefer explicit results/guidance over vague phrasing.\n    4) Apply decision boundaries and resolve conflicts:\n       - Clearly good for shareholders \u2192 positive.\n       - Clearly bad for shareholders \u2192 negative.\n       - Mixed/ambiguous/weak signal \u2192 neutral.\n       - If uncertain or speculative (\u201cmay\u201d, \u201cconsidering\u201d) \u2192 neutral.\n    5) Sanity checks: ignore sensational adjectives; avoid inferring beyond the headline; choose the dominant financial impact.\n\n    Definitions:\n    - \""positive\"": Reasons an investor would be more confident to buy/hold (e.g., beats, raised guidance, strong demand, favorable regulatory decisions).\n    - \""negative\"": Reasons an investor would be less confident or consider selling/avoiding (e.g., misses, lowered/withdrawn guidance, legal issues, fines, layoffs, product failures).\n    - \""neutral\"": Information without a clear or dominant impact (e.g., scheduled announcements, leadership changes, routine updates, mixed/ambiguous signals).\n\n    Output rules:\n    - Keep all reasoning internal; do NOT include it in the final response.\n    - The final response must be ONLY the JSON object shown above.\n    - Do not include explanations.\n    - Do not add extra fields.\n    - If uncertain, always default to \""neutral\"".\n    - Sentiment must be exactly one of: positive, neutral, negative.\n    ""
+  },
+  {
+    ""role"": ""user"",
+    ""content"": ""Headline: Harley-Davidson withdraws 2025 outlook due to tariff situation""
+  },
+  {
+    ""role"": ""assistant"",
+    ""content"": ""{\n        \""headline\"": \""Harley-Davidson withdraws 2025 outlook due to tariff situation\"",\n        \""sentiment\"": \""negative\""\n    }""
+  }
+]",617075.55,llama3:8b,1000,1,0.776,330,531,139,306,500,194

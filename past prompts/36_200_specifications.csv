@@ -1,0 +1,119 @@
+prompt,elapsed_time,model,samples,workers,accuracy,spread_pos,spread_neu,spread_neg,pred_pos,pred_neu,pred_neg
+"[
+  {
+    ""role"": ""system"",
+    ""content"": ""You are an expert financial analyst.\n    Task: Given a headline, output valid JSON:\n    {\n        \""headline\"": \""...\"",\n        \""sentiment\"": \""positive\"" | \""neutral\"" | \""negative\""\n    }\n    Rules:\n    - Do not include explanations.\n    - Do not add extra fields.\n    - Sentiment must be exactly one of the three values.\n    ""
+  },
+  {
+    ""role"": ""user"",
+    ""content"": ""Headline: Tesla shares jump after strong earnings report""
+  },
+  {
+    ""role"": ""assistant"",
+    ""content"": ""{\n    \""headline\"": \""Tesla shares jump after strong earnings report\"",\n    \""sentiment\"": \""positive\""\n}""
+  },
+  {
+    ""role"": ""user"",
+    ""content"": ""Headline: Apple announces record iPhone sales in Q4""
+  },
+  {
+    ""role"": ""assistant"",
+    ""content"": ""{\n    \""headline\"": \""Apple announces record iPhone sales in Q4\"",\n    \""sentiment\"": \""positive\""\n}""
+  },
+  {
+    ""role"": ""user"",
+    ""content"": ""Headline: Microsoft raises annual revenue forecast on strong cloud demand""
+  },
+  {
+    ""role"": ""assistant"",
+    ""content"": ""{\n    \""headline\"": \""Microsoft raises annual revenue forecast on strong cloud demand\"",\n    \""sentiment\"": \""positive\""\n}""
+  },
+  {
+    ""role"": ""user"",
+    ""content"": ""Headline: Federal Reserve maintains interest rates unchanged""
+  },
+  {
+    ""role"": ""assistant"",
+    ""content"": ""{\n    \""headline\"": \""Federal Reserve maintains interest rates unchanged\"",\n    \""sentiment\"": \""neutral\""\n}""
+  },
+  {
+    ""role"": ""user"",
+    ""content"": ""Headline: ECB to announce policy decision on Thursday""
+  },
+  {
+    ""role"": ""assistant"",
+    ""content"": ""{\n    \""headline\"": \""ECB to announce policy decision on Thursday\"",\n    \""sentiment\"": \""neutral\""\n}""
+  },
+  {
+    ""role"": ""user"",
+    ""content"": ""Headline: IBM announces leadership transition with new CEO appointment""
+  },
+  {
+    ""role"": ""assistant"",
+    ""content"": ""{\n    \""headline\"": \""IBM announces leadership transition with new CEO appointment\"",\n    \""sentiment\"": \""neutral\""\n}""
+  },
+  {
+    ""role"": ""user"",
+    ""content"": ""Headline: Walmart completes acquisition of Indian e-commerce firm Flipkart""
+  },
+  {
+    ""role"": ""assistant"",
+    ""content"": ""{\n    \""headline\"": \""Walmart completes acquisition of Indian e-commerce firm Flipkart\"",\n    \""sentiment\"": \""neutral\""\n}""
+  },
+  {
+    ""role"": ""user"",
+    ""content"": ""Headline: Bank of England releases monthly inflation report""
+  },
+  {
+    ""role"": ""assistant"",
+    ""content"": ""{\n    \""headline\"": \""Bank of England releases monthly inflation report\"",\n    \""sentiment\"": \""neutral\""\n}""
+  },
+  {
+    ""role"": ""user"",
+    ""content"": ""Headline: Google announces annual developer conference dates""
+  },
+  {
+    ""role"": ""assistant"",
+    ""content"": ""{\n    \""headline\"": \""Google announces annual developer conference dates\"",\n    \""sentiment\"": \""neutral\""\n}""
+  },
+  {
+    ""role"": ""user"",
+    ""content"": ""Headline: Boeing faces further delays in 737 Max production after safety concerns""
+  },
+  {
+    ""role"": ""assistant"",
+    ""content"": ""{\n    \""headline\"": \""Boeing faces further delays in 737 Max production after safety concerns\"",\n    \""sentiment\"": \""negative\""\n}""
+  },
+  {
+    ""role"": ""user"",
+    ""content"": ""Headline: Deutsche Bank shares fall as profit misses analyst expectations""
+  },
+  {
+    ""role"": ""assistant"",
+    ""content"": ""{\n    \""headline\"": \""Deutsche Bank shares fall as profit misses analyst expectations\"",\n    \""sentiment\"": \""negative\""\n}""
+  },
+  {
+    ""role"": ""user"",
+    ""content"": ""Headline: Credit Suisse fined $450 million over compliance failures""
+  },
+  {
+    ""role"": ""assistant"",
+    ""content"": ""{\n    \""headline\"": \""Credit Suisse fined $450 million over compliance failures\"",\n    \""sentiment\"": \""negative\""\n}""
+  },
+  {
+    ""role"": ""user"",
+    ""content"": ""Headline: Harley-Davidson withdraws 2025 outlook due to tariff situation""
+  },
+  {
+    ""role"": ""assistant"",
+    ""content"": ""{\n    \""headline\"": \""Harley-Davidson withdraws 2025 outlook due to tariff situation\"",\n    \""sentiment\"": \""negative\""\n}""
+  },
+  {
+    ""role"": ""user"",
+    ""content"": ""Headline: Intel warns of weaker-than-expected Q3 revenue due to slowing PC demand""
+  },
+  {
+    ""role"": ""assistant"",
+    ""content"": ""{\n    \""headline\"": \""Intel warns of weaker-than-expected Q3 revenue due to slowing PC demand\"",\n    \""sentiment\"": \""negative\""\n}""
+  }
+]",123948.02,llama3:8b,200,1,0.765,66,105,29,44,117,39

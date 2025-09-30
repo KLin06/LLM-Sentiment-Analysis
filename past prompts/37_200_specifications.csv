@@ -1,0 +1,15 @@
+prompt,elapsed_time,model,samples,workers,accuracy,spread_pos,spread_neu,spread_neg,pred_pos,pred_neu,pred_neg
+"[
+  {
+    ""role"": ""system"",
+    ""content"": ""You are an expert financial analyst.\n    Task: Given a headline, output valid JSON:\n    {\n        \""sentiment\"": \""positive\"" | \""neutral\"" | \""negative\""\n    }\n    Rules:\n    - Do not include the headline in the output.\n    - Do not include explanations.\n    - Do not add extra fields.\n    - Sentiment must be exactly one of the three values.\n    ""
+  },
+  {
+    ""role"": ""user"",
+    ""content"": ""Headline: Harley-Davidson withdraws 2025 outlook due to tariff situation""
+  },
+  {
+    ""role"": ""assistant"",
+    ""content"": ""{\n        \""sentiment\"": \""negative\""\n    }""
+  }
+]",55488.85,llama3:8b,200,1,0.765,66,105,29,66,109,25

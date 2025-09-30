@@ -1,0 +1,57 @@
+Notes
+- current version of ollama is llama3.2:3b
+- temperature = 0 because I want consistent and deterministic answers (easier to test)
+
+Prompt Must Include:
+Instruction - a specific task or instruction you want the model to perform
+Context - external information or additional context that can steer the model to better responses
+Input Data - the input or question that we are interested to find a response for
+Output Indicator - the type or format of the output.
+
+C: Context: Provide background and information on the task
+O: Objective: Define the task that you want the LLM to perform
+S: Style: Specify the writing style you want the LLM to use
+T: Tone: Set the attitude and tone of the response
+A: Audience: Identify who the response is for
+
+TO-DO
+Figure out a way to improve the Prompt
+Calculate accuracy
+Figure out a way to constrain the model to using json (use outlines)
+Define what the each of the sentiments means
+Utilize keywords
+Look into the Ollama options
+Figure out different ways to analyze the error
+    - look at the majority class (compare the ratios of positive, neutral, negative in prediction vs truth)
+    - see whether I confuse neutral - positive, neutral - negative, or positive - negative
+    - look at the things that impact it
+Voting of different prompts
+Look at parallel methods (purpose like if the llm is trying to grab attention) -> maybe feed this in as an input
+Batching Headlines
+Analyze the spread of the input data (percentage of each type)
+
+Research:
+https://www.llama.com/docs/how-to-guides/prompting/
+https://github.com/ggml-org/llama.cpp/blob/master/grammars/README.md
+
+ {
+    "role": "system",
+    "content": """You are an expert financial analyst.
+    Task: Given a headline, output valid JSON:
+    {
+        "headline": "...",
+        "sentiment": "positive" | "neutral" | "negative"
+    }
+    Rules:
+    - Do not include explanations.
+    - Do not add extra fields.
+    - Sentiment must be exactly one of the three values.
+    """
+    },
+    {"role": "user", "content": "Headline:  Harley-Davidson withdraws 2025 outlook due to tariff situation"},
+    {"role": "assistant",
+        "content": """{
+            "headline": "Harley-Davidson withdraws 2025 outlook due to tariff situation",
+            "sentiment": "negative"
+    }"""
+}

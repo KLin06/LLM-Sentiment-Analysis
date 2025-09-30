@@ -1,0 +1,15 @@
+prompt,elapsed_time,model,samples,workers,accuracy,spread_pos,spread_neu,spread_neg,pred_pos,pred_neu,pred_neg
+"[
+  {
+    ""role"": ""system"",
+    ""content"": ""You are an expert financial analyst.\n    Task: Given a headline, output valid JSON:\n    {\n        \""headline\"": \""...\"",\n        \""sentiment\"": \""positive\"" | \""neutral\"" | \""negative\"" | NULL\n    }\n\n    Fill in the blank before producing JSON:\n    - This headline is \""[positive | neutral | negative]\"".\n    - If you cannot confidently determine the sentiment, discard the case by setting sentiment to NULL.\n\n    Rules:\n    - Use the fill-in-the-blank internally to decide sentiment.\n    - If unsure, default to \""NULL\"" (not positive, not neutral, not negative).\n    - The final output must only be the JSON object.\n    - Do not include explanations.\n    - Do not add extra fields.\n    - Sentiment must be exactly one of: positive, neutral, negative, NULL.\n    ""
+  },
+  {
+    ""role"": ""user"",
+    ""content"": ""Headline: Harley-Davidson withdraws 2025 outlook due to tariff situation""
+  },
+  {
+    ""role"": ""assistant"",
+    ""content"": ""{\n        \""headline\"": \""Harley-Davidson withdraws 2025 outlook due to tariff situation\"",\n        \""sentiment\"": \""negative\""\n    }""
+  }
+]",113119.1,llama3:8b,200,1,0.7315789473684211,66,95,29,62,93,35
