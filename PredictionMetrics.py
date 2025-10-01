@@ -1,5 +1,6 @@
 import pandas as pd
-from sklearn.metrics import f1_score
+import matplotlib.pyplot as plt
+from sklearn.metrics import f1_score, confusion_matrix, ConfusionMatrixDisplay
 
 class PredictionMetrics():
     def __init__(self, output_file: str, specs_file: str, incorrect_file: str):
@@ -63,6 +64,15 @@ class PredictionMetrics():
         num_neutral =  (self.df["predicted_sentiment"] == "neutral").sum()
         num_negative =  (self.df["predicted_sentiment"] == "negative").sum()
         return [num_positive, num_neutral, num_negative]
+    
+    def get_confusion_matrix(self):
+        classes = ["positive", "neutral", "negative"]
+        cm = confusion_matrix(self.df["sentiment"], self.df["predicted_sentiment"], labels = classes, normalize='true')
+        disp = ConfusionMatrixDisplay(confusion_matrix = cm, display_labels = classes)
+        disp.plot(cmap=plt.cm.Blues, values_format=".2f")
+        plt.title('Normalized Confusion Matrix')
+        plt.show()
+        plt.savefig("confusion_matrix.png")
     
     def print_accuracy(self) -> None:
         print(f"Accuracy: {round(self.get_accuracy(), 2)}")

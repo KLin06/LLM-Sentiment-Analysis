@@ -3,7 +3,7 @@
 apt update -y 
 apt install -y lshw git 
 curl -fsSL https://ollama.com/install.sh | sh
-pip install ollama scikit-learn pandas
+pip install ollama scikit-learn pandas matplotlib
 ollama serve &
 sleep 3
 ollama run llama3:8b

@@ -7,7 +7,7 @@ from PredictionMetrics import PredictionMetrics
 
 # models: llama3:8b, llama3.2:3b, mistral:7b
 model = "llama3:8b"
-samples = 1000
+samples = 200
 # try to use 1 or 5 workers 
 workers = 1
 
@@ -52,8 +52,6 @@ base_message = [
         "sentiment": "negative"
     }"""
 }
-
-
 ]
 
 analyze_sentiment = AnalyzeSentiment(input_file, output_file, specs_file, model, samples, workers, base_message)
