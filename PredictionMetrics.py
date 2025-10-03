@@ -3,13 +3,14 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import f1_score, confusion_matrix, ConfusionMatrixDisplay
 
 class PredictionMetrics():
-    def __init__(self, output_file: str, specs_file: str, incorrect_file: str):
+    def __init__(self, output_file: str = None, specs_file: str = None, incorrect_file: str = None):
         self.output_file = output_file
         self.specs_file = specs_file
         self.incorrect_file = incorrect_file
-        self.df = self._process_df(self._get_df(output_file))
+        if not output_file == None:
+            self.df = self._process_df(self._get_df_by_file(output_file))
         
-    def _get_df(self, input_file: str) -> pd.DataFrame:
+    def _get_df_by_file(self, input_file: str) -> pd.DataFrame:
         return pd.read_csv(input_file)
     
     def _get_num_rows(self, df: pd.DataFrame) -> int:
@@ -48,6 +49,9 @@ class PredictionMetrics():
     
     def get_f1_score(self) -> float:
         return f1_score(self.df["sentiment"], self.df["predicted_sentiment"], average = "macro")
+    
+    def set_df (self, df: pd.DataFrame) -> None:
+        self.df = df
 
     def get_accuracy(self) -> float:
         accuracy = self._get_num_correct_rows(self.df) / self._get_num_rows(self.df)
@@ -88,6 +92,10 @@ class PredictionMetrics():
         print(f"positive: {spread[0]}, neutral: {spread[1]}, negative: {spread[2]}")
     
     def save(self) -> None:
+        if self.specs_file == None or self.incorrect_file == None:
+            print("Input files to write out")
+            return 
+        
         self._save_incorrect_rows()
         self._save_specs()
     
