@@ -71,7 +71,7 @@ class AnalyzeSentiment():
     
     def predict_sentiments(self) -> None:
         start = time.perf_counter()
-        temperature = 0.0 if self.workers == 1 else 0.2
+        temperature = 0 if self.workers == 1 else 0.2
         
         for worker in range (1, self.workers + 1):
             preds = []
